@@ -2,7 +2,7 @@ from model.hr import hr
 from view import terminal as view
 
 LIST_OF_LABELS = ["Enter name", "Enter date of birth", "Enter department", "Enter clearance"]
-USER_ID_LABEL = "Enter user ID"
+EMPLOYEE_ID_LABEL = "Enter user ID"
 
 
 def list_employees():
@@ -15,31 +15,37 @@ def add_employee():
 
 
 def update_employee():
-    pass
+    inputs = view.get_inputs(LIST_OF_LABELS)
+    employee_id = view.get_input(EMPLOYEE_ID_LABEL)
+    hr.update_employee(inputs, employee_id)
 
 
 def delete_employee():
-    pass
+    employee_id = view.get_input(EMPLOYEE_ID_LABEL)
+    hr.remove_employee(employee_id)
 
 
 def get_oldest_and_youngest():
-    pass
+    view.print_general_results(hr.get_oldest_and_youngest(), "Youngest and oldest")
 
 
 def get_average_age():
-    pass
+    view.print_general_results(hr.average_age(), "Average")
 
 
 def next_birthdays():
-    pass
+    date = view.get_input("Enter date")
+    view.print_general_results(hr.next_birthdays(date), "Next birthdays")
 
 
 def count_employees_with_clearance():
-    pass
+    clearance_lvl = view.get_input("Enter clearance level")
+    view.print_general_results(hr.count_employees_with_at_least_clearance_lvl(clearance_lvl),
+                               "List of proper employees")
 
 
 def count_employees_per_department():
-    pass
+    view.print_general_results(hr.count_employees_by_department(), "Departments")
 
 
 def run_operation(option):

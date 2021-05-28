@@ -1,17 +1,14 @@
-import data_manager
-import util
+from model import data_manager, util
 
 
-def import_all_records(datafile, headers):
-    first_place = 0
+def import_all_records(datafile):
     to_return = data_manager.read_table_from_file(datafile)
-    to_return.insert(first_place, headers)
     return to_return
 
 
 def add_one_record(list_of_inputs, datafile):
     new_record = []
-    list_of_all_records = data_manager.read_table_from_file(datafile)
+    list_of_all_records = import_all_records(datafile)
 
     new_record.append(util.generate_id())
     for _ in list_of_inputs:
@@ -23,7 +20,7 @@ def add_one_record(list_of_inputs, datafile):
 
 
 def update_record(list_of_inputs, record_id, datafile):
-    list_of_all_records = data_manager.read_table_from_file(datafile)
+    list_of_all_records = import_all_records(datafile)
     index_of_id = 0
     for record in list_of_all_records:
         if record_id == record[index_of_id]:
@@ -33,7 +30,7 @@ def update_record(list_of_inputs, record_id, datafile):
 
 
 def remove_record(record_id, datafile):
-    list_of_all_users = data_manager.read_table_from_file(datafile)
+    list_of_all_users = import_all_records(datafile)
     index_of_id = 0
 
     for user in list_of_all_users:

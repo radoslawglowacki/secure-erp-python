@@ -41,13 +41,15 @@ def print_general_results(result, label):
         result_string += "\n"
         for _ in result:
             result_string += _ + ", "
+    elif type_of_result == dict:
+        for k, v in result.items():
+            result_string += "\n"
+            result_string += str(k) + ": "
+            result_string += str(v)
     elif type_of_result == int:
-        for _ in result:
-            result_string += _ + ", "
+        result_string += str(result)
     elif type_of_result == float:
-        for _ in result:
-            result_string += round(_, 2)
-            result_string += ", "
+        result_string += str(round(result, 2))
 
     print(result_string)
 

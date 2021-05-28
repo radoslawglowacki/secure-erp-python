@@ -7,14 +7,17 @@ Data table structure:
     - subscribed (int): Is subscribed to the newsletter? 1: yes, 0: no
 """
 
-from model import data_manager, util, CRUD
+from model import CRUD
 
 DATAFILE = "model/crm/crm.csv"
 HEADERS = ["id", "name", "email", "subscribed"]
 
 
-def import_all():
-    return CRUD.import_all_records(DATAFILE, HEADERS)
+def import_all_users():
+    first_place = 0
+    users_list = CRUD.import_all_records(DATAFILE)
+    users_list.insert(first_place, HEADERS)
+    return users_list
 
 
 def add_customer(list_of_inputs):
@@ -30,7 +33,7 @@ def remove_user(user_id):
 
 
 def get_emails_of_subscribed():
-    list_of_all_users = data_manager.read_table_from_file(DATAFILE)
+    list_of_all_users = CRUD.import_all_records(DATAFILE)
     subscription_status_index = 3
     mail_index = 2
     correct_status_of_subscription = "1"

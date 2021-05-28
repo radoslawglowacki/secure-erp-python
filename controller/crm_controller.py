@@ -6,7 +6,7 @@ USER_ID_LABEL = "Enter user ID"
 
 
 def list_customers():
-    view.print_table(crm.import_all())
+    view.print_table(crm.import_all_users())
 
 
 def add_customer():
