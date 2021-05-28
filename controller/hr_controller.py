@@ -1,41 +1,45 @@
 from model.hr import hr
 from view import terminal as view
 
+LIST_OF_LABELS = ["Enter name", "Enter date of birth", "Enter department", "Enter clearance"]
+USER_ID_LABEL = "Enter user ID"
+
 
 def list_employees():
-    view.print_error_message("Not implemented yet.")
+    view.print_table(hr.import_all_employees())
 
 
 def add_employee():
-    view.print_error_message("Not implemented yet.")
+    inputs = view.get_inputs(LIST_OF_LABELS)
+    hr.add_employee(inputs)
 
 
 def update_employee():
-    view.print_error_message("Not implemented yet.")
+    pass
 
 
 def delete_employee():
-    view.print_error_message("Not implemented yet.")
+    pass
 
 
 def get_oldest_and_youngest():
-    view.print_error_message("Not implemented yet.")
+    pass
 
 
 def get_average_age():
-    view.print_error_message("Not implemented yet.")
+    pass
 
 
 def next_birthdays():
-    view.print_error_message("Not implemented yet.")
+    pass
 
 
 def count_employees_with_clearance():
-    view.print_error_message("Not implemented yet.")
+    pass
 
 
 def count_employees_per_department():
-    view.print_error_message("Not implemented yet.")
+    pass
 
 
 def run_operation(option):
