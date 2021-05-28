@@ -1,3 +1,6 @@
+from texttable import Texttable
+
+
 def print_menu(title, list_options):
     """Prints options in standard menu format like this:
 
@@ -11,7 +14,9 @@ def print_menu(title, list_options):
         title (str): the title of the menu (first row)
         list_options (list): list of the menu options (listed starting from 1, 0th element goes to the end)
     """
-    pass
+    print(title)
+    for i in range(len(list_options)):
+        print("(" + str(i) + ") " + list_options[i])
 
 
 def print_message(message):
@@ -20,7 +25,7 @@ def print_message(message):
     Args:
         message: str - the message
     """
-    pass
+    print(message)
 
 
 def print_general_results(result, label):
@@ -29,23 +34,34 @@ def print_general_results(result, label):
     lists/tuples (like "@label: \n  @item1; @item2"), and dictionaries
     (like "@label \n  @key1: @value1; @key2: @value2")
     """
-    pass
+    type_of_result = type(result)
+    result_string = label + ": "
+
+    if type_of_result == list:
+        result_string += "\n"
+        for _ in result:
+            result_string += _ + ", "
+    elif type_of_result == int:
+        for _ in result:
+            result_string += _ + ", "
+    elif type_of_result == float:
+        for _ in result:
+            result_string += round(_, 2)
+            result_string += ", "
+
+    print(result_string)
 
 
-# /--------------------------------\
-# |   id   |   product  |   type   |
-# |--------|------------|----------|
-# |   0    |  Bazooka   | portable |
-# |--------|------------|----------|
-# |   1    | Sidewinder | missile  |
-# \-----------------------------------/
 def print_table(table):
     """Prints tabular data like above.
 
     Args:
         table: list of lists - the table to print out
     """
-    pass
+    t = Texttable()
+    for i in range(len(table)):
+        t.add_row(table[i])
+    print(t.draw())
 
 
 def get_input(label):
@@ -54,7 +70,7 @@ def get_input(label):
     Args:
         label: str - the label before the user prompt
     """
-    pass
+    return input(label + " : ")
 
 
 def get_inputs(labels):
@@ -63,7 +79,12 @@ def get_inputs(labels):
     Args:
         labels: list - the list of the labels to be displayed before each prompt
     """
-    pass
+    inputs = []
+
+    for i in range(0, len(labels)):
+        inputs.append(input(labels[i] + " : "))
+
+    return inputs
 
 
 def print_error_message(message):
@@ -72,4 +93,4 @@ def print_error_message(message):
     Args:
         message: str - the error message
     """
-    pass
+    print("Error: " + message)

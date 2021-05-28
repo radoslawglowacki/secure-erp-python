@@ -1,25 +1,32 @@
 from model.crm import crm
 from view import terminal as view
 
+LIST_OF_LABELS = ["Enter name", "Enter mail", "Enter subscription(1-yes, 0-no)"]
+USER_ID_LABEL = "Enter user ID"
+
 
 def list_customers():
-    view.print_error_message("Not implemented yet.")
+    view.print_table(crm.import_all())
 
 
 def add_customer():
-    view.print_error_message("Not implemented yet.")
+    inputs = view.get_inputs(LIST_OF_LABELS)
+    crm.add_customer(inputs)
 
 
 def update_customer():
-    view.print_error_message("Not implemented yet.")
+    id_of_user = view.get_input(USER_ID_LABEL)
+    inputs = view.get_inputs(LIST_OF_LABELS)
+    crm.update_customer(inputs, id_of_user)
 
 
 def delete_customer():
-    view.print_error_message("Not implemented yet.")
+    id_of_user = view.get_input(USER_ID_LABEL)
+    crm.remove_user(id_of_user)
 
 
 def get_subscribed_emails():
-    view.print_error_message("Not implemented yet.")
+    view.print_general_results(crm.get_emails_of_subscribed(), "Emails")
 
 
 def run_operation(option):
