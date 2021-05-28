@@ -2,7 +2,7 @@ from model.hr import hr
 from view import terminal as view
 
 LIST_OF_LABELS = ["Enter name", "Enter date of birth", "Enter department", "Enter clearance"]
-EMPLOYEE_ID_LABEL = "Enter user ID"
+EMPLOYEE_ID_LABEL = "Enter employee ID"
 
 
 def list_employees():

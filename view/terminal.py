@@ -40,7 +40,7 @@ def print_general_results(result, label):
     if type_of_result == list:
         result_string += "\n"
         for _ in result:
-            result_string += _ + ", "
+            result_string += str(_) + ", "
     elif type_of_result == dict:
         for k, v in result.items():
             result_string += "\n"
@@ -50,6 +50,8 @@ def print_general_results(result, label):
         result_string += str(result)
     elif type_of_result == float:
         result_string += str(round(result, 2))
+    elif type_of_result == str:
+        result_string += result
 
     print(result_string)
 

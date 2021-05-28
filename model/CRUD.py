@@ -2,8 +2,7 @@ from model import data_manager, util
 
 
 def import_all_records(datafile):
-    to_return = data_manager.read_table_from_file(datafile)
-    return to_return
+    return data_manager.read_table_from_file(datafile)
 
 
 def add_one_record(list_of_inputs, datafile):
@@ -22,6 +21,7 @@ def add_one_record(list_of_inputs, datafile):
 def update_record(list_of_inputs, record_id, datafile):
     list_of_all_records = import_all_records(datafile)
     index_of_id = 0
+
     for record in list_of_all_records:
         if record_id == record[index_of_id]:
             for i in range(0, len(list_of_inputs)):
