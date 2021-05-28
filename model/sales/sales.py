@@ -58,8 +58,9 @@ def get_biggest_revenue_product():
             products_revenue[transaction[product_index]] += float(transaction[transaction_revenue_index])
 
     ordered_revenues = list(sorted(products_revenue.items(), key=lambda item: item[1], reverse=True))
+    biggest_revenue_product = ordered_revenues[0][0]
 
-    return ordered_revenues[0][0]
+    return biggest_revenue_product
 
 
 def get_transaction_between_dates(start, end):

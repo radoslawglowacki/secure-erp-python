@@ -49,9 +49,11 @@ def get_oldest_and_youngest():
 
     youngest_index = 0
     oldest_index = -1
+    date = 0
+    name = 1
 
-    return {ordered_dates[youngest_index][1]: ordered_dates[youngest_index][0],
-            ordered_dates[oldest_index][1]: ordered_dates[oldest_index][0]}
+    return {ordered_dates[youngest_index][name]: ordered_dates[youngest_index][date],
+            ordered_dates[oldest_index][name]: ordered_dates[oldest_index][date]}
 
 
 def average_age():
@@ -109,4 +111,3 @@ def count_employees_by_department():
             departments[employee_department] += 1
 
     return departments
-
