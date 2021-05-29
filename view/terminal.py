@@ -15,8 +15,9 @@ def print_menu(title, list_options):
         list_options (list): list of the menu options (listed starting from 1, 0th element goes to the end)
     """
     print(title)
-    for i in range(len(list_options)):
+    for i in range(1, len(list_options)):
         print("(" + str(i) + ") " + list_options[i])
+    print("(0) " + list_options[0])
 
 
 def print_message(message):
